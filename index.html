@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./style.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="./image/icon_vel.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Montserrat:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Jogo Da Velha</title>
+  </head>
+  <body>
+    <nav>
+      <button class="btn start" id="start">Iniciar</button>
+    </nav>
+    <main id="main">
+      <h1>Jogo Da Velha</h1>
+      <div id="line-left-vetical"></div>
+      <div id="line-center-vetical"></div>
+      <div id="line-right-vetical"></div>
+      <div id="line-top-horizontal"></div>
+      <div id="line-center-horizontal"></div>
+      <div id="line-bottom-horizontal"></div>
+      <div id="line-diagonal-right"></div>
+      <div id="line-diagonal-left"></div>
+      <div id="sqw">
+        <div class="line1">
+          <div class="square sqr" id="s1" onclick="move(this)"></div>
+          <div class="square sqr" id="s2" onclick="move(this)"></div>
+          <div class="square sqr" id="s3" onclick="move(this)"></div>
+        </div>
+        <div class="line2">
+          <div class="square sqr" id="s4" onclick="move(this)"></div>
+          <div class="square sqr" id="s5" onclick="move(this)"></div>
+          <div class="square sqr" id="s6" onclick="move(this)"></div>
+        </div>
+        <div class="line3">
+          <div class="square sqr" id="s7" onclick="move(this)"></div>
+          <div class="square sqr" id="s8" onclick="move(this)"></div>
+          <div class="square sqr" id="s9" onclick="move(this)"></div>
+        </div>
+      </div>
+    </main>
+    <div id="back" class="back">
+      <p id="msg"></p>
+      <button id="restart" onclick="restart()">Reiniciar</button>
+    </div>
+    <script src="./script.js"></script>
+    <script src="./inter.js"></script>
+  </body>
+</html>

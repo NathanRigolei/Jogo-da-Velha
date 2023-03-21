@@ -1,0 +1,371 @@
+@font-face {
+  font-family: "modern";
+  src: url("./fontes/Carlonezo.ttf") format("truetype");
+}
+* {
+  margin: 0;
+  padding: 0;
+  animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+body {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  background-color: #222;
+  color: #222;
+}
+.back,
+main,
+.btn,
+.back-end {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.back,
+main,
+.start,
+.start-end,
+.back-end,
+.main-end {
+  position: fixed;
+  animation-fill-mode: forwards;
+  animation-duration: 2s;
+}
+.back {
+  width: 40%;
+  color: #eee;
+  font-size: 27px;
+  display: none;
+}
+#restart {
+  outline: none;
+  font-family: "Montserrat", sans-serif;
+  background-color: #eee;
+  color: #222;
+  padding: 10px 25px;
+  font-size: 25px;
+  font-weight: 500;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  margin-top: 1vw;
+}
+#restart:hover {
+  background-color: rgb(209, 255, 222);
+}
+main {
+  display: none;
+  animation-name: enter-left;
+  padding: 20px;
+  border-radius: 10px;
+}
+h1 {
+  font-weight: 400;
+  color: #eee;
+  margin-bottom: 1vw;
+}
+.main-end {
+  width: 430px;
+  animation-name: exit-right;
+}
+.square {
+  display: inline-block;
+  width: 130px;
+  height: 130px;
+  padding: 0;
+  margin: 0;
+  background-color: #eee;
+  border-radius: 10px;
+  margin: 5px;
+}
+.sqr:hover {
+  cursor: pointer;
+  background-color: rgb(209, 255, 222);
+}
+#sqw {
+  height: 430px;
+  width: 450px;
+}
+.o::after,
+.x::after {
+  position: absolute;
+  font-size: 130px;
+  line-height: 130px;
+  top: -0.4vw;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  font-weight: 400;
+}
+.x,
+.o {
+  position: relative;
+}
+.o::after {
+  font-family: "modern", cursive;
+  content: "o";
+}
+.x::after {
+  font-family: "modern", cursive;
+  content: "x";
+}
+.btn {
+  font-family: "Montserrat", sans-serif;
+  background-color: #eee;
+  color: #222;
+  padding: 10px 25px;
+  font-size: 25px;
+  font-weight: 500;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn:hover {
+  background-color: rgb(209, 255, 222);
+}
+.win-sequence {
+  color: rgb(78, 218, 118);
+}
+#color-symbol{
+  color: rgb(78, 218, 118);
+  font-weight: 600;
+}
+.start,
+.back {
+  animation-name: enter-top;
+}
+.start-end,
+.back-end {
+  animation-name: exit-bottom;
+}
+#line-left-vetical,
+#line-center-vetical,
+#line-right-vetical {
+  position: fixed;
+  width: 8px;
+  height: 390px;
+  background-color: rgb(78, 218, 118);
+  animation-fill-mode: forwards;
+  animation-duration: 0.2s;
+  animation-name: line-vetical;
+  bottom: 15.9%;
+  border-radius: 25px;
+  display: none;
+  z-index: 2;
+}
+#line-left-vetical {
+  left: 19.5%;
+}
+#line-center-vetical {
+  left: 49.5%;
+}
+#line-right-vetical {
+  left: 79%;
+}
+#line-diagonal-left {
+  position: relative;
+  display: none;
+  top: 9vh;
+  left: -15%;
+}
+#line-diagonal-right {
+  position: relative;
+  display: none;
+  top: 9vh;
+  left: 15%;
+}
+#line-diagonal-right:after,
+#line-diagonal-left:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 8px;
+  background-color: rgb(78, 218, 118);
+  top: 5px;
+  border-radius: 25px;
+  z-index: 2;
+}
+#line-diagonal-right:after {
+  left: 5px;
+}
+
+#line-diagonal-left:after {
+  left: 100%;
+}
+#line-diagonal-right:after,
+#line-diagonal-left:after {
+  animation: line-diagonal 0.2s linear forwards;
+  transform-origin: left top;
+}
+#line-diagonal-right:after {
+  transform: rotate(45deg);
+}
+#line-diagonal-left:after {
+  transform: rotate(135deg);
+}
+#line-top-horizontal,
+#line-center-horizontal,
+#line-bottom-horizontal {
+  position: fixed;
+  width: 390px;
+  height: 8px;
+  background-color: rgb(118, 242, 153);
+  animation-fill-mode: forwards;
+  animation-duration: 0.2s;
+  animation-name: line-horizontal;
+  bottom: 15.9%;
+  border-radius: 25px;
+  left: 19%;
+  display: none;
+  z-index: 2;
+}
+#line-top-horizontal {
+  top: 26.8%;
+}
+#line-center-horizontal {
+  top: 54.5%;
+}
+#line-bottom-horizontal {
+  top: 82%;
+}
+@keyframes enter-top {
+  0% {
+    top: -40%;
+  }
+  70% {
+    top: calc(50%);
+  }
+  100% {
+    top: 50%;
+  }
+}
+@keyframes exit-bottom {
+  0% {
+    top: 50%;
+  }
+  50% {
+    top: calc(120%);
+  }
+  100% {
+    top: 120%;
+  }
+}
+@keyframes main-back {
+  0% {
+    left: 140%;
+  }
+  50% {
+    left: calc(50%);
+  }
+  100% {
+    left: 50%;
+  }
+}
+@keyframes enter-left {
+  0% {
+    left: -40%;
+  }
+  50% {
+    left: calc(50%);
+  }
+  100% {
+    left: 50%;
+  }
+}
+@keyframes exit-right {
+  0% {
+    left: 50%;
+  }
+  70% {
+    left: calc(140%);
+  }
+  100% {
+    left: 140%;
+  }
+}
+@keyframes line-vetical {
+  from {
+    height: 0;
+  }
+  to {
+    height: 300px;
+  }
+}
+@keyframes line-diagonal {
+  to {
+    width: 100%;
+  }
+}
+@keyframes line-horizontal {
+  from {
+    width: 0;
+  }
+  to {
+    width: 307px;
+  }
+}
+@media screen and (max-width: 520px) {
+  @keyframes exit-right {
+    0% {
+      left: 50%;
+    }
+    70% {
+      left: calc(200%);
+    }
+    100% {
+      left: 200%;
+    }
+  }
+  .back {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 440px) {
+  .square {
+    width: 26vw;
+    height: 26vw;
+  }
+  .o::after,
+  .x::after {
+    font-size: 30vw;
+    top: -3vw;
+  }
+}
+@media screen and (max-width: 400px) {
+  .o::after,
+  .x::after {
+    top: -5vw;
+  }
+}
+@media screen and (max-width: 360px) {
+  .o::after,
+  .x::after {
+    top: -6vw;
+  }
+}
+@media screen and (max-width: 340px) {
+  .o::after,
+  .x::after {
+    top: -8vw;
+  }
+}
+@media screen and (max-width: 310px) {
+  .o::after,
+  .x::after {
+    top: -10vw;
+  }
+}
+@media screen and (max-width: 290px) {
+  .o::after,
+  .x::after {
+    top: -12vw;
+  }
+}
+@media screen and (max-width: 260px) {
+  .o::after,
+  .x::after {
+    top: -14vw;
+  }
+}
